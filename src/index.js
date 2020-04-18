@@ -5,7 +5,6 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./assets/vendor/fontawesome-free/css/all.min.css";
 import "./assets/css/sb-admin.css";
-// import './assets/vendor/jquery/jquery.min.js'
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
 ReactDOM.render(<App />, document.getElementById("root"));

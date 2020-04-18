@@ -9,20 +9,20 @@ export default class Login extends Component {
     password: "",
     redirect: false,
     authError: false,
-    isLoading: false
+    isLoading: false,
   };
 
-  handleEmailChange = event => {
+  handleEmailChange = (event) => {
     this.setState({ email: event.target.value });
   };
-  handlePwdChange = event => {
+  handlePwdChange = (event) => {
     this.setState({ password: event.target.value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.setState({ isLoading: true });
-    const url = "http://127.0.0.1:5000/api/Admin/Login";
+    const url = "http://52.54.194.137:2000/api/Admin/Login";
     const email = this.state.email;
     const password = this.state.password;
     let bodyFormData = new FormData();
@@ -36,11 +36,11 @@ export default class Login extends Component {
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET,  POST",
-            "Content-Type": "application/json"
-          }
+            "Content-Type": "application/json",
+          },
         }
       )
-      .then(result => {
+      .then((result) => {
         console.log(result);
         if (result.status === 200) {
           console.log("got response");
@@ -51,7 +51,7 @@ export default class Login extends Component {
           this.setState({ authError: true, isLoading: false });
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         this.setState({ authError: true, isLoading: false });
       });
